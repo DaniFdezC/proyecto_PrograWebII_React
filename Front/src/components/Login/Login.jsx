@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './Login.css'
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -19,6 +21,7 @@ const Login = () => {
         const data = await response.json();
         console.log('Inicio de sesión exitoso:', data);
         localStorage.setItem("token", response.accessToken);
+        navigate("/dashboard");
     } else {
         const errorData = await response.json();
         console.error('Error al iniciar sesión:', errorData);
