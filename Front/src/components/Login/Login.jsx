@@ -18,7 +18,7 @@ const Login = () => {
       if (response.ok) {
         const data = await response.json();
         console.log('Inicio de sesión exitoso:', data);
-        //history.pushState()
+        localStorage.setItem("token", response.accessToken);
     } else {
         const errorData = await response.json();
         console.error('Error al iniciar sesión:', errorData);
