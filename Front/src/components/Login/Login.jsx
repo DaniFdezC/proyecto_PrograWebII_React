@@ -20,7 +20,7 @@ const Login = () => {
       if (response.ok) {
         const data = await response.json();
         console.log('Inicio de sesión exitoso:', data);
-        localStorage.setItem("token", response.accessToken);
+        localStorage.setItem("token", data.accessToken);
         navigate("/dashboard");
     } else {
         const errorData = await response.json();

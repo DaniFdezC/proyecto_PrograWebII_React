@@ -29,13 +29,13 @@ const Role = db.role;
 
 db.sequelize.sync();
 
-app.get("/", (req, res) => {
+/*app.get("/", (req, res) => {
   res.sendFile(__dirname+'/public/html/index.html')
 })
 
 app.get("/dashboard", (req, res) => {
   res.sendFile(__dirname+'/public/html/dashboard.html')
-})
+})*/
 
 app.get("/api/redireccionToken", (req, res) => {
   const token = req.headers.authorization;
@@ -54,28 +54,18 @@ app.get("/api/redireccionToken", (req, res) => {
 
     let redirectURL = '/';
 
-    // dependiendo del rol te trae unos datos u otros
+    let responseData;
+
     if (roles.includes('admin')) {
-      redirectURL = '/paginaAdmin';
+      responseData= {message: "Eres admin"}
     } else if (roles.includes('moderator')) {
-      redirectURL = '/paginaModerator';
+      responseData= {message: "Eres mod"}
     } else if (roles.includes('user')) {
-      redirectURL = '/paginaUser';
+      responseData= {message: "Eres user"}
     }
 
-    if (redirectURL === '/') {
-      return res.status(403).json({ mensaje: 'Acceso no permitido' });
-    }
+    res.status(200).json(responseData);
 
-    const filePath = __dirname + '/public/html' + redirectURL + '.html';
-    
-    const fs = require('fs');
-    fs.readFile(filePath, 'utf8', (err, data) => {
-      if (err) {
-        return res.status(500).json({ mensaje: 'Error al leer el archivo HTML' });
-      }
-      res.send(data);
-    });
 
   });
 });
