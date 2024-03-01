@@ -29,15 +29,7 @@ const Role = db.role;
 
 db.sequelize.sync();
 
-/*app.get("/", (req, res) => {
-  res.sendFile(__dirname+'/public/html/index.html')
-})
-
-app.get("/dashboard", (req, res) => {
-  res.sendFile(__dirname+'/public/html/dashboard.html')
-})*/
-
-app.get("/api/redireccionToken", (req, res) => {
+app.get("/api/getDashboard", (req, res) => {
   const token = req.headers.authorization;
 
   if (!token) {

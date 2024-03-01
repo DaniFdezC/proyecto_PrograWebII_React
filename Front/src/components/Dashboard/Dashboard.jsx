@@ -7,7 +7,7 @@ const Dashboard = () => {
   const handleLogin = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch('http://localhost:8080/api/redireccionToken', {
+      const response = await fetch('http://localhost:8080/api/getDashboard', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
