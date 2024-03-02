@@ -19,7 +19,6 @@
   input {
     width: 100%;
     padding: 8px;
-    margin-top: 4px;
     box-sizing: border-box;
     color: black;
     background-color: white;
@@ -27,15 +26,15 @@
   
   button {
     width: 100%;
-    padding: 10px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
   }
   
   button:hover {
     background-color: #45a049;
+  }
+
+  .button-container {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
   }
   

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import './Dashboard.css'
 
 const Dashboard = () => {  
   const [dataShow, setDataShow] = useState('');
@@ -30,10 +31,10 @@ const Dashboard = () => {
   handleLogin();
   
   return (
-    <div>
+    <div className="container-dashboard">
       <h2>Dashboard</h2>
       <p>Bienvenido al panel de control.</p>
-      <p>{dataShow ? dataShow : "NO TIENES PERMISOS"}</p>
+      <p>{dataShow ? dataShow : "NO TIENES PERMISOS O TOKEN NO VÁLIDO"}</p>
     </div>
   );
 };

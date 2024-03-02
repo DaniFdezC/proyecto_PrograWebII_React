@@ -31,6 +31,10 @@ const Login = () => {
     }
   };
 
+  const handleCreateUser = () => {
+    navigate("/create-user");
+  };
+
   return (
     <div>
       <h2>Login</h2>
@@ -44,7 +48,10 @@ const Login = () => {
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </label>
       <br />
-      <button onClick={handleLogin}>Iniciar sesión</button>
+      <div className="button-container">
+        <button onClick={handleLogin}>Sign in</button>
+        <button onClick={handleCreateUser}>Sign up</button>
+      </div>
     </div>
   );
 };

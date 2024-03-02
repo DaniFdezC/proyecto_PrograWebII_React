@@ -44,16 +44,14 @@ app.get("/api/getDashboard", (req, res) => {
     const roles = usuario.roles || [];
     console.log(usuario);
 
-    let redirectURL = '/';
-
     let responseData;
 
     if (roles.includes('admin')) {
-      responseData= {message: "Eres admin"}
+      responseData= {message: "Tu rango es admin"}
     } else if (roles.includes('moderator')) {
-      responseData= {message: "Eres mod"}
+      responseData= {message: "Tu rango es mod"}
     } else if (roles.includes('user')) {
-      responseData= {message: "Eres user"}
+      responseData= {message: "Tu rango es user"}
     }
 
     res.status(200).json(responseData);
