@@ -20,11 +20,23 @@ Tras hacer login correctamente se pasa a la página de dashboard:
 # Gestión de rutas
 
 Rutas de la API:
-- /api/auth/signup &rarr; Ruta para crearse un usuario, se le pasa username, email, password y un array de roles. En caso de no pasársele ningún rol, automáticamente le asignará el rol de usuario. Devuelve un JSON con la información (p.ej, si se ha creado el usuario correctamente un {success: true})
+- /   &rarr; Carga la aplicación, concretamente el componente App
 
-- /api/auth/signin &rarr; Ruta para hacer login, se le pasa un usuario y una contraseña. Desde el back se crea el token, se desencripta la contraseña y se comprueba si es correcta contra la BBDD. Si el login es correcto, devuelve el id delk usuario, el usuario, email, roles, el token y un mensaje de success. Desde el frontend se guarda el token en localStorage
+<br>
 
-- /api/getDashboard &rarr; Carga el dashboard de la aplicación, dependiendo de tus permisos mediante el token, se verá unos datos u otro. Saldrá un aviso que no se tienen permisos en caso de no haber token o al no ser correcto.
+- /dashboard &rarr; Carga el componente Dashboard, que este renderiza una ventana, que dependiendo el tipo de acceso que tiene el usuario, se mostrarán unos datos u otros. Por defecto se muestra un aviso de que el token no es correcto, ya que no se ha realizado un login. Una vez se haga el login correctamente se creará el token y es el que se utilizará para mostrar unos datos u otros.
+
+<br>
+
+- /createUser &rarr; Carga el componente para crear usuario, se llama desde el login desde la parte "Sign up", es un pequeño formulario para crear el usuario (nombre, email, password y seleccionar rol)
+
+# Gestión de estados
+
+Los distintos componentes tienen sus estados propios, tales como el username, password, email... etc. El estado se gestiona con una función al crear esa label, con un:
+```
+onChange={(e) => setUsername(e.target.value)
+```
+De esta manera nos aseguramos de la renderización constante de los elementos cuando se modifiquen.
 
 # Requisitos para que funcione
 1. Tener instalado un mysql (en mi caso utilicé wampserver ya que crea uno), con una base de datos testdb creada
