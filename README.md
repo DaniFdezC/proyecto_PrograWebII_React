@@ -80,9 +80,9 @@ npm run dev
 
 
 
-#Informacióm del proyecto
+# Informacióm del proyecto
 
-###Frontend
+### Frontend
 - [X] Registro.
 
 - [X] Login.
