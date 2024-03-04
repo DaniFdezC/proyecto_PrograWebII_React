@@ -25,7 +25,6 @@ exports.signup = (req, res) => {
         }).then(roles => {
           user.setRoles(roles).then(() => {
             res.status(200).send({
-              redirectURL : "/",
               success: true
             });
           });
@@ -33,7 +32,6 @@ exports.signup = (req, res) => {
       } else {
         user.setRoles([1]).then(() => {
           res.status(200).send({
-            redirectURL : "/",
             success: true
           });
         });
@@ -86,7 +84,6 @@ exports.signin = (req, res) => {
           email: user.email,
           roles: authorities,
           accessToken: token,
-          redirectURL: "/dashboard",
           success: true
         });
       });

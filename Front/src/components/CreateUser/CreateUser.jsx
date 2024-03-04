@@ -7,7 +7,7 @@ const CreateUser = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-    const [role, setRole] = useState('');
+    const [role, setRole] = useState('user');
 
     const handleSignUp = async () => {
         try {
@@ -24,7 +24,7 @@ const CreateUser = () => {
               navigate("/");
           } else {
               const errorData = await response.json();
-              console.error('Error al iniciar sesión:', errorData);
+              alert(errorData.message);
             }
           } catch (error) {
             console.error('Error en la solicitud:', error);
@@ -32,7 +32,7 @@ const CreateUser = () => {
       };
 
     const handleGoBack = () => {
-    navigate("/");
+        navigate("/");
     };
 
     return (
